@@ -1,5 +1,8 @@
 # Café Finder ☕️
 
+**Remerciements :**  
+Merci à [Gabriela Banaag (gbanaag)](https://github.com/gbanaag) pour son **template initial** qui m’a permis de démarrer ce projet.
+
 ## Description
 Café Finder est une application web qui te permet de **trouver et sauvegarder les meilleurs cafés près de ta position**.  
 Les utilisateurs peuvent swiper les cafés pour les sauvegarder et consulter leur liste de favoris.
@@ -102,4 +105,5 @@ Le projet utilise Node.js pour contourner les restrictions CORS.
 cors-anywhere n’est plus nécessaire.
 
 Pour un accès sur mobile en local, Node.js doit être actif et le front pointer vers l’IP locale.
+
 
