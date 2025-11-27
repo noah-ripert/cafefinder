@@ -1,28 +1,32 @@
-import express from "express";
-import fetch from "node-fetch";
-import cors from "cors";
+require("dotenv").config();
+const express = require("express");
+const fetch = require("node-fetch");
+const cors = require("cors");
 
 const app = express();
-app.use(cors());
+const PORT = 3000;
 
-const apiKey = "AIzaSyCplIwrULh6xZZ91RFB90L_7HtsuhrHoDA";
+app.use(cors()); // permet au front de faire des requêtes locales
 
-// Route API pour chercher des cafés
+const API_KEY = process.env.API_KEY;
+
 app.get("/api/cafes", async (req, res) => {
   const { lat, lng } = req.query;
+  if (!lat || !lng) {
+    return res.status(400).json({ error: "Missing lat/lng parameters" });
+  }
 
-  if (!lat || !lng) return res.status(400).json({ error: "Missing lat/lng" });
-
-  const url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=1500&type=cafe&key=${apiKey}`;
+  const endpoint = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=1500&type=cafe&key=${API_KEY}`;
 
   try {
-    const response = await fetch(url);
+    const response = await fetch(endpoint);
     const data = await response.json();
     res.json(data);
   } catch (err) {
-    console.error("Google API error:", err);
-    res.status(500).json({ error: "Server error" });
+    res.status(500).json({ error: err.message });
   }
 });
 
-app.listen(3000, () => console.log("API running on http://localhost:3000"));
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
+});
