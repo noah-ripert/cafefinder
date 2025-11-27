@@ -5,7 +5,7 @@ import cors from "cors";
 const app = express();
 app.use(cors());
 
-const apiKey = "AIzaSyASRdOmpPb4Ee1RvTJsP6vUyGlOw8KXDKc";
+const apiKey = "AIzaSyCplIwrULh6xZZ91RFB90L_7HtsuhrHoDA";
 
 // Route API pour chercher des cafés
 app.get("/api/cafes", async (req, res) => {

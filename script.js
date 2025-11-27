@@ -45,7 +45,7 @@ function showCafes(cafes) {
     card.className = "location-card";
 
     const imgUrl = cafe.photos?.[0]?.photo_reference
-      ? `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${cafe.photos[0].photo_reference}&key=TA_CLE_NODE`
+      ? `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${cafe.photos[0].photo_reference}&key=AIzaSyCplIwrULh6xZZ91RFB90L_7HtsuhrHoDA`
       : "https://via.placeholder.com/250x150?text=No+Image";
 
     const cafeData = {
